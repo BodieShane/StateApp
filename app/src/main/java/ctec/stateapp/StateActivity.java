@@ -4,7 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.widget.TextView;
+import android.content.Intent;
+import android.view.View;
 
 public class StateActivity extends AppCompatActivity {
 
@@ -12,7 +14,30 @@ public class StateActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_state);
+
     }
+
+
+    private void loadContent()
+    {
+       userText.setText(saveState.getUserName() + " is" + saveState.getAge()
+       + " years old and their tired status is" + saveState.getIsTired());
+
+    }
+
+    private void setupListeners()
+    {
+
+
+
+
+        Intent returnIntent = newIntent();
+        setResult(RESULT_OK, returnIntent);
+        finish();
+
+    }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
